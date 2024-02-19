@@ -16,8 +16,6 @@ rm -rf device
 
 git_sparse_clone master https://github.com/vernesong/OpenClash luci-app-openclash
 
-git_sparse_clone master https://github.com/kenzok8/openwrt-packages luci-app-adguardhome
-
 
 mv -f luci-app-openclash package
 
@@ -26,7 +24,6 @@ echo 'src-git dns https://github.com/sbwml/luci-app-mosdns' >>feeds.conf.default
 
 ./scripts/feeds update -a
 rm -rf feeds/packages/net/mosdns
-rm -rf feeds/packages/net/adguardhome
 rm -rf feeds/luci/applications/luci-app-openclash
 rm -rf package/emortal/default-settings
 

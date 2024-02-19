@@ -9,7 +9,6 @@ env:
   CONFIG_FILE: im.config
   DIY_P1_SH: sh/im.sh
   DIY_P2_SH: sh/oc.sh
-  DIY_P3_SH: sh/ad.sh
   UPLOAD_FIRMWARE: true
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
@@ -19,7 +18,7 @@ jobs:
     runs-on: ubuntu-20.04
 
     steps:
-    - name: 可用磁盘空间 (Ubuntu)
+    - name: 腾出可用磁盘空间 (Ubuntu)
       uses: jlumbroso/free-disk-space@main
       with:
         # this might remove tools that are actually needed,
@@ -68,11 +67,6 @@ jobs:
       run: |
         chmod +x $DIY_P2_SH
         $GITHUB_WORKSPACE/$DIY_P2_SH
-
-    - name: 下载ad内核
-      run: |
-        chmod +x $DIY_P3_SH
-        $GITHUB_WORKSPACE/$DIY_P3_SH
         
     - name: 加载自定义配置
       run: |
