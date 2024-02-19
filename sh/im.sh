@@ -38,7 +38,6 @@ echo 'src-git dns https://github.com/sbwml/luci-app-mosdns' >>feeds.conf.default
 
 ./scripts/feeds update -a
 rm -rf feeds/packages/net/mosdns
-rm -rf feeds/packages/net/adguardhome
 rm -rf feeds/luci/applications/luci-app-openclash
 rm -rf package/emortal/default-settings
 
