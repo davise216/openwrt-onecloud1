@@ -14,17 +14,12 @@ git_sparse_clone main https://github.com/shiyu1314/openwrt-onecloud device
 cp -r device/* ./
 rm -rf device
 
-git_sparse_clone master https://github.com/vernesong/OpenClash luci-app-openclash
-
-
-mv -f luci-app-openclash package
-
 echo 'src-git dns https://github.com/sbwml/luci-app-mosdns' >>feeds.conf.default
 
 
 ./scripts/feeds update -a
 rm -rf feeds/packages/net/mosdns
-rm -rf feeds/luci/applications/luci-app-openclash
+##rm -rf feeds/luci/applications/luci-app-openclash
 rm -rf package/emortal/default-settings
 
 ./scripts/feeds update -a
