@@ -16,10 +16,22 @@ rm -rf device
 
 git_sparse_clone master https://github.com/vernesong/OpenClash luci-app-openclash
 
+git_sparse_clone master https://github.com/kenzok8/openwrt-packages luci-app-adguardhome
+
+echo "config AdGuardHome 'AdGuardHome'
+	option enabled '0'
+	option httpport '3000'
+	option redirect 'none'
+	option configpath '/etc/AdGuardHome.yaml'
+	option workdir '/etc/AdGuardHome'
+	option logfile '/tmp/AdGuardHome.log'
+	option verbose '0'
+	option binpath '/usr/bin/AdGuardHome/AdGuardHome'
+	option upxflag ''">luci-app-adguardhome/root/etc/config/AdGuardHome
+
 mv -f luci-app-openclash package
 
-git clone --depth=1 https://github.com/kongfl888/luci-app-adguardhome package/luci-app-adguardhome
-
+mv -f luci-app-adguardhome package
 
 echo 'src-git dns https://github.com/sbwml/luci-app-mosdns' >>feeds.conf.default
 
